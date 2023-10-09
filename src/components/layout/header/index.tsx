@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import Image from "next/image"
+// import Image from "next/image"
 import { signIn, signOut, useSession } from "next-auth/react"
 import { useTheme } from "next-themes"
 import { MdDarkMode, MdLightMode, MdLogin, MdLogout } from "react-icons/md"
@@ -13,7 +13,7 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({
-  className,
+  // className,
   fontInitializer,
   menuHandler,
   pattern,
@@ -72,13 +72,13 @@ const Header: React.FC<HeaderProps> = ({
     <nav className="border-b border-gray-600 bg-white font-general text-gray-900 shadow-lg duration-75 dark:bg-gray-900 dark:text-gray-400">
       <div className="flex flex-row justify-center">
         <div className="flex flex-row items-center">
-          <Image
+          {/* <Image
             src="/images/logo.svg"
             alt=""
             className="svgfill-gpt mx-2 inline h-12 w-12 duration-150 hover:rotate-180"
             height={400}
             width={400}
-          />
+          /> */}
           <h1 className="relative hidden select-none text-2xl font-extrabold tracking-tight duration-75 dark:text-white sm:inline lg:text-4xl 2xl:text-[3rem]">
             <span className="dark:text-gpt">{"EditorGPT"}</span>
           </h1>
@@ -87,7 +87,7 @@ const Header: React.FC<HeaderProps> = ({
           <div className="hidden h-full items-center py-2 px-2 duration-75 dark:text-white lg:flex">
             <span className="text-xl">{session?.user?.name || "Guest"}</span>
             <div className="relative my-auto ml-2 inline h-10 w-10 rounded-full border border-gray-900 duration-75 dark:border-white">
-              {session?.user?.image ? (
+              {/* {session?.user?.image ? (
                 <Image
                   src={session?.user.image}
                   alt=""
@@ -96,9 +96,9 @@ const Header: React.FC<HeaderProps> = ({
                   width={500}
                 />
               ) : (
-                // <UserCircleIcon className="relative h-full w-full rounded-full duration-75 dark:text-white" />
+                <UserCircleIcon className="relative h-full w-full rounded-full duration-75 dark:text-white" />
                 <span className="relative h-full w-full rounded-full bg-red-400" />
-              )}
+              )} */}
               <div className="absolute right-0 bottom-0 h-2 w-2 rounded-full border border-gray-900 bg-green-500 duration-75 dark:border-white"></div>
             </div>
           </div>
@@ -127,7 +127,7 @@ const Header: React.FC<HeaderProps> = ({
             className="h-full border-l border-gray-600 px-2 font-semibold no-underline duration-75 hover:bg-gray-300 dark:hover:bg-white/10"
             onClick={() => menuHandler()}
           >
-            <Image
+            {/* <Image
               src="/images/logo.svg"
               className=" inline h-8 w-8 dark:hidden"
               height={500}
@@ -140,7 +140,7 @@ const Header: React.FC<HeaderProps> = ({
               height={500}
               width={500}
               alt=""
-            />
+            /> */}
           </button>
           <div className="relative flex h-full items-center justify-center border-l border-gray-600 px-2 duration-75 hover:bg-gray-300 dark:hover:bg-white/10">
             {renderThemeChanger()}

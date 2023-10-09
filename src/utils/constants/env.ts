@@ -9,5 +9,4 @@ const getEnvironmentVariable = (environmentVariable: string): string => {
 }
 
 export const API_BASE_URL = getEnvironmentVariable("NEXT_PUBLIC_API_BASE_URL")
-
-/* Appwrite */
+export const NEXT_PUBLIC_OPENAI_API = getEnvironmentVariable("NEXT_PUBLIC_OPENAI_API")
