@@ -4,11 +4,12 @@ import { useSession } from "next-auth/react"
 import { OpenAI } from "openai"
 import Typewriter from "typewriter-effect"
 
-import { NEXT_PUBLIC_OPENAI_API } from "@/utils/constants/env"
+import { env } from "@/utils/constants/env.mjs"
 import { AdjustmentsIcon, TrashIcon, UserCircleIcon } from "@heroicons/react/solid"
 
 const configuration = {
-  apiKey: NEXT_PUBLIC_OPENAI_API,
+  apiKey: env.NEXT_PUBLIC_OPENAI_API,
+  dangerouslyAllowBrowser: true,
 }
 
 const openai = new OpenAI(configuration)
@@ -60,7 +61,7 @@ const Chat: React.FC<ChatProps> = ({ code }) => {
           [
             // with a new array
             ...history, // that contains all the old items
-            ["EditorGPT", completion?.choices[0]?.message?.content || ""], // and one new item at the end
+            ["CodeFlow", completion?.choices[0]?.message?.content || ""], // and one new item at the end
           ]
         )
       }
@@ -130,7 +131,7 @@ const Chat: React.FC<ChatProps> = ({ code }) => {
           <div className="relative z-10 flex items-center border-y border-y-gray-600 bg-gray-100 px-2 py-2 duration-150 dark:bg-gray-800  ">
             <p className="flex select-none items-center text-lg font-semibold text-gray-800 duration-150 dark:text-white">
               <AdjustmentsIcon className="mr-2 h-6 w-6 text-gray-600 dark:text-gray-400" /> Use{" "}
-              <span className="mx-[0.38rem] text-gptDarker dark:text-gpt"> EditorGPT </span> to
+              <span className="mx-[0.38rem] text-gptDarker dark:text-gpt"> CodeFlow </span> to
               Analyze your Code
             </p>
             <div className="ml-auto flex items-center">
@@ -176,7 +177,7 @@ const Chat: React.FC<ChatProps> = ({ code }) => {
                     </div>
 
                     <div className="mt-2 text-sm text-gray-700 dark:text-gray-300">
-                      {msg[0] == "EditorGPT" || msg[0] == "gpt-4" ? (
+                      {msg[0] == "CodeFlow" || msg[0] == "gpt-4" ? (
                         <Typewriter
                           options={{
                             loop: false,

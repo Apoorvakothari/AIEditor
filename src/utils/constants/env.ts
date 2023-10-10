@@ -17,3 +17,4 @@ export const DISCORD_CLIENT_ID = getEnvironmentVariable("DISCORD_CLIENT_ID")
 export const DISCORD_CLIENT_SECRET = getEnvironmentVariable("DISCORD_CLIENT_SECRET")
 export const GOOGLE_CLIENT_ID = getEnvironmentVariable("GOOGLE_CLIENT_ID")
 export const GOOGLE_CLIENT_SECRET = getEnvironmentVariable("GOOGLE_CLIENT_SECRET")
+export const NODE_ENV = getEnvironmentVariable("NODE_ENV") ?? "development"

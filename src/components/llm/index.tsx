@@ -4,12 +4,13 @@ import { useSession } from "next-auth/react"
 import { OpenAI } from "openai"
 import Typewriter from "typewriter-effect"
 
-import { NEXT_PUBLIC_OPENAI_API } from "@/utils/constants/env"
+import { env } from "@/utils/constants/env.mjs"
 import { TrashIcon, UserCircleIcon } from "@heroicons/react/solid"
 import { XIcon } from "@heroicons/react/solid"
 
 const configuration = {
-  apiKey: NEXT_PUBLIC_OPENAI_API,
+  apiKey: env.NEXT_PUBLIC_OPENAI_API,
+  dangerouslyAllowBrowser: true,
 }
 
 const openai = new OpenAI(configuration)
@@ -58,7 +59,7 @@ const ChatGPT: React.FC<ChatProps> = ({ setTranslate, translate }) => {
           // Replace the state
           [
             ...history,
-            ["EditorGPT", completion?.choices[0]?.message?.content || ""], // and one new item at the end
+            ["CodeFlow", completion?.choices[0]?.message?.content || ""], // and one new item at the end
           ]
         )
       }
@@ -175,7 +176,7 @@ const ChatGPT: React.FC<ChatProps> = ({ setTranslate, translate }) => {
                   </div>
 
                   <div className="mt-2 text-sm text-gray-700 dark:text-gray-300">
-                    {msg[0] == "EditorGPT" || msg[0] == "gpt-4" ? (
+                    {msg[0] == "CodeFlow" || msg[0] == "gpt-4" ? (
                       <Typewriter
                         options={{
                           loop: false,

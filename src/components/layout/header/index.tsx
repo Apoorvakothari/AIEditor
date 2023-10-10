@@ -80,7 +80,7 @@ const Header: React.FC<HeaderProps> = ({
             width={400}
           /> */}
           <h1 className="relative hidden select-none text-2xl font-extrabold tracking-tight duration-75 dark:text-white sm:inline lg:text-4xl 2xl:text-[3rem]">
-            <span className="dark:text-gpt">{"EditorGPT"}</span>
+            <span className="dark:text-gpt">{"CodeFlow"}</span>
           </h1>
         </div>
         <div className="ml-auto flex ">

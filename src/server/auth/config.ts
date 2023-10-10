@@ -3,12 +3,8 @@ import { type DefaultSession, getServerSession, type NextAuthOptions } from "nex
 import DiscordProvider from "next-auth/providers/discord"
 import GoogleProvider from "next-auth/providers/google"
 
-import {
-  DISCORD_CLIENT_ID,
-  DISCORD_CLIENT_SECRET,
-  GOOGLE_CLIENT_ID,
-  GOOGLE_CLIENT_SECRET,
-} from "@/utils/constants/env"
+import { env } from "@/utils/constants/env.mjs"
+const { DISCORD_CLIENT_ID, DISCORD_CLIENT_SECRET, GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET } = env
 
 declare module "next-auth" {
   interface Session extends DefaultSession {
